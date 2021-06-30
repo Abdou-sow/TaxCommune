@@ -11,21 +11,18 @@ function Login() {
       <h1 className="text-center">Login</h1>
       <div className="mb-3 row col-5 offset-3">
         <label className="col-sm-2 col-form-label">T.Numero</label>
-        <div className="col-sm-10">
-          <input type="text" className="form-control" onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" />
-        </div>
+        <input type="text" className="form-control" onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" />
       </div>
       <div className="mb-3 row col-5 offset-3">
         <label className="col-sm-2 col-form-label">Password</label>
+        <input type="password" className="form-control" onChange={(e => setPassword(e.target.value))} id="inputPassword" />
         <div className="col-sm-10">
-          <input type="password" className="form-control" onChange={(e => setPassword(e.target.value))} id="inputPassword" />
-
           <button type="button" className="btn btn-success mt-2" >Valider</button>
 
           <button type="button" className="btn btn-danger mt-2" >Annuler</button>
         </div>
       </div>
-     
+
     </div>
   );
 }
