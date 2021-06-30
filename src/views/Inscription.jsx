@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import InputGroup from "../components/InputGroup";
 
 function Signup() {
@@ -36,18 +37,64 @@ function Signup() {
     //     })
 
     // }
+
+
+    // const validUser = async () => {
+
+
+    //     try {
+
+    //         const userInfo = {
+    //             name: name,
+    //             surname: surname,
+    //             birth: birth,
+    //             addressPerso: addressPerso,
+    //             adressActivite: adressActivite,
+    //             activite: activite,
+    //             commune: commune,
+    //             telephone: telephone,
+    //             passWord: passWord,
+    //         }
+
+    //         if (userInfo.password === confirmPassword) {
+
+    //             const response = await axios.post('http://localhost:9001/signup', userInfo)
+
+    //             if (response.status === 200) {
+
+    //                 setUserCreated(true)
+    //                 console.log("setUserCreated :", userCreated);
+
+    //                 history.push("/Login")
+
+    //                 alert("you can connect now !")
+    //             }
+    //             await console.log("userCreated :", userCreated);
+
+    //         } else {
+    //             alert("confirm password not correct")
+    //         }
+
+    //     } catch (error) {
+    //         console.error(error.response);
+    //     }
+
+
+
+    // }
     return (
         <div className="container ">
             <h3 className="text-center">Inscrivez-vous</h3>
-            {/* on ajoute  onSubmit={validUser} dans form */}
-            <form >
-                <div className="input-group mb-3" onChange={(e) => setCommune(e.target.value)}>
+
+            {/* <form onSubmit={validUser} > */}
+            <form>
+                {/* <div className="input-group mb-3" onChange={(e) => setCommune(e.target.value)}>
                     <InputGroup
                         name="commune" />
-                </div>
+                </div> */}
                 <div className="input-group mb-3" onChange={(e) => setActivite(e.target.value)}>
                     <InputGroup
-                        name="activite" />
+                        name="activity" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">name</label>
