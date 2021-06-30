@@ -5,6 +5,8 @@ import Inscription from '../views/Inscription';
 import Connexion from '../views/Connexion';
 import EspacePerso from '../views/EspacePerso';
 import Home from '../views/Home';
+import Payement from '../views/Payement'
+
 
 
 const NavBar = () => {
@@ -17,7 +19,7 @@ const NavBar = () => {
                     <img src={imgUrl} alt="" width="75" height="50" className="d-inline-block align-text-top" />
 
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
+                        <li className="nav-item" >
                             <Link to="/">Accueil</Link>
                         </li>
                     </ul>
@@ -35,6 +37,7 @@ const NavBar = () => {
                 <Route exact path="/Inscription" component={Inscription} />
                 <Route exact path="/Connexion" component={Connexion} />
                 <Route exact path="/EspacePerso" component={EspacePerso} />
+                <Route exact path="/Payement" component={Payement} />
             </Switch>
         </BrowserRouter>
     );
