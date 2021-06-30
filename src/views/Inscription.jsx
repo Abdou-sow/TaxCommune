@@ -40,13 +40,31 @@ function Signup() {
             <h3 className="text-center">Inscrivez-vous</h3>
             {/* on ajoute  onSubmit={validUser} dans form */}
             <form >
+                <div class="input-group mb-3">
+                    <select className="form-select" id="inputGroupSelect02">
+                    {/* to do : diplay les activites enrigistrer dans la collection commune dans base de donnees */}
+                        <option selected>commune...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <select className="form-select" id="inputGroupSelect02">
+                        {/* to do : diplay les activites enrigistrer dans la collection activite dans base de donnees */}
+                        <option selected>activite...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
                 <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">name</label>
+                    <label className="form-label">name</label>
                     <input type="text" className="form-control" autoComplete="name" onChange={(e) => setName(e.target.value)}></input>
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">surname</label>
-                    <input type="text" className="form-control"  onChange={(e) => setSurname(e.target.value)}></input>
+                    <input type="text" className="form-control" onChange={(e) => setSurname(e.target.value)}></input>
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">addressPerso</label>
@@ -54,19 +72,11 @@ function Signup() {
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">adressActivite</label>
-                    <input type="text" className="form-control"  onChange={(e) => setAddressactivite(e.target.value)}></input>
-                </div>
-                <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">activite</label>
-                    <input type="text" className="form-control"  onChange={(e) => setActivite(e.target.value)}></input>
-                </div>
-                <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">commune</label>
-                    <input type="text" className="form-control"  onChange={(e) => setCommune(e.target.value)}></input>
+                    <input type="text" className="form-control" onChange={(e) => setAddressactivite(e.target.value)}></input>
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">telephone</label>
-                    <input type="text" className="form-control"  onChange={(e) => setTelephone(e.target.value)}></input>
+                    <input type="text" className="form-control" onChange={(e) => setTelephone(e.target.value)}></input>
                 </div>
                 <div className="mb-3">
                     <label for="exampleFormControlInput1" className="form-label">Password </label>
