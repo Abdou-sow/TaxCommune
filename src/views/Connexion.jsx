@@ -19,10 +19,13 @@ function Login() {
         <label className="col-sm-2 col-form-label">Password</label>
         <div className="col-sm-10">
           <input type="password" className="form-control" onChange={(e => setPassword(e.target.value))} id="inputPassword" />
-          <button type="button" className="btn btn-primary mt-2" >LOGIN</button>
 
+          <button type="button" className="btn btn-success mt-2" >Valider</button>
+
+          <button type="button" className="btn btn-danger mt-2" >Annuler</button>
         </div>
       </div>
+     
     </div>
   );
 }
