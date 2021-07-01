@@ -10,8 +10,9 @@ function InputGroup(props) {
 
         const url = "http://localhost:9001/"+props.name
         console.log("url :",url);
-        const response = await axios.post(url)
-        setInfo(response.data.activityList)
+        const response = await axios.get(url)
+        setInfo(response.data.List)
+        console.log("response.data.List :",response.data.List);
 
 
     },[])

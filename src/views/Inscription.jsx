@@ -21,17 +21,17 @@ function Signup() {
     //     const url = "http://localhost:9001/signup"
 
     //     axios.post(url, {
-    //         "name":name,
-    //         "surname":surname,
-    //         "birth":birth,
-    //         "addressPerso" :addressPerso,
-    //         "adressActivite" :adressActivite,
-    //         "activite":activite,
-    //         "commune":commune,
-    //         "telephone":telephone,
+    //         "name": name,
+    //         "surname": surname,
+    //         "birth": birth,
+    //         "addressPerso": addressPerso,
+    //         "adressActivite": adressActivite,
+    //         "activite": activite,
+    //         "commune": commune,
+    //         "telephone": telephone,
     //         "passWord": passWord,
     //         "confirmPassword": confirmPassword
-    //     }).then(res =>{
+    //     }).then(res => {
     //         console.log("res :", res);
     //         console.log("res.data :", res.data);
     //     })
@@ -39,62 +39,64 @@ function Signup() {
     // }
 
 
-    // const validUser = async () => {
+    const validUser = async (e) => {
+        e.preventDefault();
 
 
-    //     try {
+        try {
 
-    //         const userInfo = {
-    //             name: name,
-    //             surname: surname,
-    //             birth: birth,
-    //             addressPerso: addressPerso,
-    //             adressActivite: adressActivite,
-    //             activite: activite,
-    //             commune: commune,
-    //             telephone: telephone,
-    //             passWord: passWord,
-    //         }
+            const userInfo = {
+                name: name,
+                surname: surname,
+                birth: birth,
+                addressPerso: addressPerso,
+                adressActivite: adressActivite,
+                activite: activite,
+                commune: commune,
+                telephone: telephone,
+                passWord: passWord,
+            }
+            const telephoneExiste = await axios.get("http://localhost:9001/users")
+            console.log("telephoneExiste :", telephoneExiste.data.userlist);
+            //     if (userInfo.password === confirmPassword) {
 
-    //         if (userInfo.password === confirmPassword) {
+            //         const response = await axios.post('http://localhost:9001/signup', userInfo)
 
-    //             const response = await axios.post('http://localhost:9001/signup', userInfo)
+            //         if (response.status === 200) {
 
-    //             if (response.status === 200) {
+            //             setUserCreated(true)
+            //             console.log("setUserCreated :", userCreated);
 
-    //                 setUserCreated(true)
-    //                 console.log("setUserCreated :", userCreated);
+            //             history.push("/Login")
 
-    //                 history.push("/Login")
+            //             alert("you can connect now !")
+            //         }
+            //         await console.log("userCreated :", userCreated);
 
-    //                 alert("you can connect now !")
-    //             }
-    //             await console.log("userCreated :", userCreated);
+            //     } else {
+            //         alert("confirm password not correct")
+            //     }
 
-    //         } else {
-    //             alert("confirm password not correct")
-    //         }
-
-    //     } catch (error) {
-    //         console.error(error.response);
-    //     }
+        } catch (error) {
+            console.error(error.response);
+        }
 
 
 
-    // }
+    }
+
     return (
         <div className="container ">
             <h3 className="text-center">Inscrivez-vous</h3>
 
-            {/* <form onSubmit={validUser} > */}
-            <form>
-                {/* <div className="input-group mb-3" onChange={(e) => setCommune(e.target.value)}>
+            <form onSubmit={validUser} >
+                <div className="input-group mb-3" onChange={(e) => setCommune(e.target.value)}>
                     <InputGroup
-                        name="commune" />
-                </div> */}
+                        name="communes" />
+                </div>
                 <div className="input-group mb-3" onChange={(e) => setActivite(e.target.value)}>
                     <InputGroup
-                        name="activity" />
+                        name="activities" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">name</label>

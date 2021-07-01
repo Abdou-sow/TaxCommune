@@ -17,15 +17,15 @@ const NavBar = () => {
                     <img src={imgUrl} alt="" width="75" height="50" className="d-inline-block align-text-top" />
 
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link to="/">Accueil</Link>
+                        <li className="nav-item" >
+                            <Link to="/"style={{color:"black", textDecoration:"none"}} >Accueil</Link>
                         </li>
                     </ul>
                     <span className="navbar-text">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li><Link to="/Inscription">Inscription</Link></li>
-                            <li><Link to="/Connexion">Connexion</Link></li>
-                            <li><Link to="/EspacePerso">EspacePerso</Link></li>
+                            <li><Link to="/Inscription" style={{color:"black", textDecoration:"none"}}>Inscription</Link></li>
+                            <li><Link to="/Connexion"style={{color:"black", textDecoration:"none"}}>Connexion</Link></li>
+                            <li><Link to="/EspacePerso" style={{color:"black", textDecoration:"none"}}>EspacePerso</Link></li>
                         </ul>
                     </span>
                 </div>
