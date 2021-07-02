@@ -1,10 +1,30 @@
+import axios from "axios";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Login() {
 
-  const [telephoneNmb, setTelephoneNmb] = useState(0);
+  let history = useHistory()
+
+  const [telephoneNmb, setTelephoneNmb] = useState("");
   const [password, setPassword] = useState("");
 
+  const validLogoin = async () => {
+    try {
+      const response = await axios.post('http://localhost:9001/login', { telephone: telephoneNmb, password })
+      console.log("response :", response);
+      if (response.status === 200) {
+        console.log("if");
+
+        history.push("/EspacePerso")
+
+      }
+
+    } catch (error) {
+      alert("information incorrect")
+      console.log("error :", error);
+    }
+  }
 
   return (
     <div className="container">
@@ -19,7 +39,7 @@ function Login() {
           <label className="col-sm-2 col-form-label" for="floatingInput">Password</label>
         </div>
         <div className="col-4 offset-4">
-          <button style={{ marginRight: 30 }} type="button" className="btn btn-success mt-2" >Valider</button>
+          <button style={{ marginRight: 30 }} type="button" className="btn btn-success mt-2" onClick={validLogoin}>Valider</button>
 
           <button type="button" className="btn btn-danger mt-2" >Annuler</button>
         </div>

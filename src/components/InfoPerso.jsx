@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Modal from 'react-modal';
 // import ModifInfo from './ModifInfo';TODO
+import Pay from '../components/pay';
 
 const InfoPerso = () => {
 
@@ -105,10 +106,10 @@ const InfoPerso = () => {
                     </Modal>
                     <div className="border border-dark col-4 text-center">
                         <h2 >Payement</h2>
-                        <p>modalité de payement choisi</p>
-                        <p>import à payer : 300.000 cfa</p>
+                            <Pay/>
                         <div className="text-center">
-                            <a href="/Payement"><button>Payer</button></a>
+                            <a><button>Payer</button></a> 
+                            {/* <a href="/Payement"><button>Payer</button></a> */}
                         </div>
 
                     </div>
