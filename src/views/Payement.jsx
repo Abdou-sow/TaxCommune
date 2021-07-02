@@ -172,58 +172,60 @@ const CheckoutForm = () => {
       <ResetButton onClick={reset} />
     </div>
   ) : (
-    <form className="Form" onSubmit={handleSubmit}>
-      <fieldset className="FormGroup">
-        <Field
-          label="Name"
-          id="name"
-          type="text"
-          placeholder="Jane Doe"
-          required
-          autoComplete="name"
-          value={billingDetails.name}
-          onChange={(e) => {
-            setBillingDetails({ ...billingDetails, name: e.target.value });
-          }}
-        />
-        <Field
-          label="Email"
-          id="email"
-          type="email"
-          placeholder="janedoe@gmail.com"
-          required
-          autoComplete="email"
-          value={billingDetails.email}
-          onChange={(e) => {
-            setBillingDetails({ ...billingDetails, email: e.target.value });
-          }}
-        />
-        <Field
-          label="Phone"
-          id="phone"
-          type="tel"
-          placeholder="(941) 555-0123"
-          required
-          autoComplete="tel"
-          value={billingDetails.phone}
-          onChange={(e) => {
-            setBillingDetails({ ...billingDetails, phone: e.target.value });
-          }}
-        />
-      </fieldset>
-      <fieldset className="FormGroup">
-        <CardField
-          onChange={(e) => {
-            setError(e.error);
-            setCardComplete(e.complete);
-          }}
-        />
-      </fieldset>
-      {error && <ErrorMessage>{error.message}</ErrorMessage>}
-      <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $25
-      </SubmitButton>
-    </form>
+    <div className='container'>
+      <form className="Form" onSubmit={handleSubmit}>
+        <fieldset className="FormGroup">
+          <Field
+            label="Name"
+            id="name"
+            type="text"
+            placeholder="Jane Doe"
+            required
+            autoComplete="name"
+            value={billingDetails.name}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, name: e.target.value });
+            }}
+          />
+          <Field
+            label="Email"
+            id="email"
+            type="email"
+            placeholder="janedoe@gmail.com"
+            required
+            autoComplete="email"
+            value={billingDetails.email}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, email: e.target.value });
+            }}
+          />
+          <Field
+            label="Phone"
+            id="phone"
+            type="tel"
+            placeholder="(941) 555-0123"
+            required
+            autoComplete="tel"
+            value={billingDetails.phone}
+            onChange={(e) => {
+              setBillingDetails({ ...billingDetails, phone: e.target.value });
+            }}
+          />
+        </fieldset>
+        <fieldset className="FormGroup">
+          <CardField
+            onChange={(e) => {
+              setError(e.error);
+              setCardComplete(e.complete);
+            }}
+          />
+        </fieldset>
+        {error && <ErrorMessage>{error.message}</ErrorMessage>}
+        <SubmitButton processing={processing} error={error} disabled={!stripe}>
+          Pay $25
+        </SubmitButton>
+      </form>
+    </div>
   );
 };
 
