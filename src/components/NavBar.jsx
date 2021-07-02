@@ -5,6 +5,7 @@ import Inscription from '../views/Inscription';
 import Connexion from '../views/Connexion';
 import EspacePerso from '../views/EspacePerso';
 import Home from '../views/Home';
+import Payement from "../views/Payement"
 
 
 
@@ -36,6 +37,7 @@ const NavBar = () => {
                 <Route exact path="/Inscription" component={Inscription} />
                 <Route exact path="/Connexion" component={Connexion} />
                 <Route exact path="/EspacePerso" component={EspacePerso} />
+                <Route exact path="/Payement" component={Payement} />
             </Switch>
         </BrowserRouter>
     );

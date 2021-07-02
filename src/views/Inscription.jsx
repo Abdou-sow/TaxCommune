@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import InputGroup from "../components/InputGroup";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Signup() {
+    let history = useHistory()
+
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
     const [birth, setBirth] = useState("")
@@ -16,33 +18,10 @@ function Signup() {
     const [confirmPassword, setConfirmPassword] = useState("")
 
 
-    // const validUser = (e) => {
-    //     e.preventDefault();
-
-    //     const url = "http://localhost:9001/signup"
-
-    //     axios.post(url, {
-    //         "name":name,
-    //         "surname":surname,
-    //         "birth":birth,
-    //         "addressPerso" :addressPerso,
-    //         "adressActivite" :adressActivite,
-    //         "activite":activite,
-    //         "commune":commune,
-    //         "telephone":telephone,
-    //         "passWord": passWord,
-    //         "confirmPassword": confirmPassword
-    //     }).then(res =>{
-    //         console.log("res :", res);
-    //         console.log("res.data :", res.data);
-    //     })
-
-    // }
-
-
     const validUser = async (e) => {
-
         e.preventDefault();
+       
+       
         // console.log("name :",name);
         // console.log("surname :",surname);
         // console.log("birth :",birth);
@@ -52,43 +31,46 @@ function Signup() {
         // console.log("commune :",commune);
         // console.log("telephone :",parseInt(telephone));
         // console.log("passWord :",passWord);
+        // console.log("history :",history);
 
-            try {
+        try {
 
-                const userInfo = {
-                    surname: surname,
-                    firstname: name,
-                    dateofbirth: birth,
-                    address_personal: addressPerso,
-                    address_activity: adressActivite,
-                    activity_commune:commune,
-                    activity:activite,
-                    telephone: parseInt(telephone) ,
-                    password: passWord,
-                }
-
-                if (passWord === confirmPassword) {
-
-
-                    const response = await axios.post('http://localhost:9001/signup', userInfo) 
-
-
-
-                    if (response.status === 200) {
-
-                        console.log("setUserCreated :", response);
-
-                        alert("you can connect now !")
-                        // todo faire de sorte que ca t'envoie directement dans connexion
-                    }
-
-                } else {
-                    alert("confirm password not correct")
-                }
-
-            } catch (error) {
-                console.error(error.response);
+            const userInfo = {
+                surname: surname,
+                firstname: name,
+                dateofbirth: birth,
+                address_personal: addressPerso,
+                address_activity: adressActivite,
+                activity_commune: commune,
+                activity: activite,
+                telephone: parseInt(telephone),
+                password: passWord,
             }
+
+            if (passWord === confirmPassword) {
+
+
+                const response = await axios.post('http://localhost:9001/signup', userInfo)
+
+
+
+                if (response.status === 200) {
+
+                    // console.log("setUserCreated :", response);
+
+                    alert("you can connect now !")
+                    
+                    history.push("/Connexion")
+
+                }
+
+            } else {
+                alert("confirm password not correct")
+            }
+
+        } catch (error) {
+            console.error(error.response);
+        }
 
 
 

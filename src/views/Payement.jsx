@@ -78,7 +78,7 @@ const SubmitButton = ({ processing, error, children, disabled }) => (
 
 const ErrorMessage = ({ children }) => (
   <div className="ErrorMessage" role="alert">
-    <svg width="16" height="16" viewBox="0 0 17 17">
+    <svg width="16" height="16" viewBox="0 0 17 17">Payement
       <path
         fill="#FFF"
         d="M8.5,17 C3.80557963,17 0,13.1944204 0,8.5 C0,3.80557963 3.80557963,0 8.5,0 C13.1944204,0 17,3.80557963 17,8.5 C17,13.1944204 13.1944204,17 8.5,17 Z"
