@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import InputGroup from "../components/InputGroup";
+import { Link } from "react-router-dom";
 
 function Signup() {
     const [name, setName] = useState("")
@@ -39,62 +40,71 @@ function Signup() {
     // }
 
 
-    // const validUser = async () => {
+    const validUser = async (e) => {
+
+        e.preventDefault();
+        // console.log("name :",name);
+        // console.log("surname :",surname);
+        // console.log("birth :",birth);
+        // console.log("addressPerso :",addressPerso);
+        // console.log("adressActivite :",adressActivite);
+        // console.log("activite :",activite);
+        // console.log("commune :",commune);
+        // console.log("telephone :",parseInt(telephone));
+        // console.log("passWord :",passWord);
+
+            try {
+
+                const userInfo = {
+                    surname: surname,
+                    firstname: name,
+                    dateofbirth: birth,
+                    address_personal: addressPerso,
+                    address_activity: adressActivite,
+                    activity_commune:commune,
+                    activity:activite,
+                    telephone: parseInt(telephone) ,
+                    password: passWord,
+                }
+
+                if (passWord === confirmPassword) {
 
 
-    //     try {
-
-    //         const userInfo = {
-    //             name: name,
-    //             surname: surname,
-    //             birth: birth,
-    //             addressPerso: addressPerso,
-    //             adressActivite: adressActivite,
-    //             activite: activite,
-    //             commune: commune,
-    //             telephone: telephone,
-    //             passWord: passWord,
-    //         }
-
-    //         if (userInfo.password === confirmPassword) {
-
-    //             const response = await axios.post('http://localhost:9001/signup', userInfo)
-
-    //             if (response.status === 200) {
-
-    //                 setUserCreated(true)
-    //                 console.log("setUserCreated :", userCreated);
-
-    //                 history.push("/Login")
-
-    //                 alert("you can connect now !")
-    //             }
-    //             await console.log("userCreated :", userCreated);
-
-    //         } else {
-    //             alert("confirm password not correct")
-    //         }
-
-    //     } catch (error) {
-    //         console.error(error.response);
-    //     }
+                    const response = await axios.post('http://localhost:9001/signup', userInfo) 
 
 
 
-    // }
+                    if (response.status === 200) {
+
+                        console.log("setUserCreated :", response);
+
+                        alert("you can connect now !")
+                        // todo faire de sorte que ca t'envoie directement dans connexion
+                    }
+
+                } else {
+                    alert("confirm password not correct")
+                }
+
+            } catch (error) {
+                console.error(error.response);
+            }
+
+
+
+    }
     return (
         <div className="container ">
             <h3 className="text-center">Inscrivez-vous</h3>
 
-            {/* <form onSubmit={validUser} > */}
-            <form>
-                {/* <div className="input-group mb-3" onChange={(e) => setCommune(e.target.value)}>
+            <form onSubmit={validUser} >
+                <div className="input-group mb-3" onChange={(e) => setCommune(e.target.value)}>
                     <InputGroup
-                        name="commune" />
-                </div> */}
+                        name="communes" />
+                </div>
                 <div className="input-group mb-3" onChange={(e) => setActivite(e.target.value)}>
                     <InputGroup
-                        name="activity" />
+                        name="activities" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">name</label>
@@ -126,9 +136,9 @@ function Signup() {
                 </div>
                 <div className="mb-3">
                     <label for="exampleFormControlInput1" className="form-label">birth</label>
-                    <input type="date" className="form-control" onChange={(e) => setBirth(e.target.value)}></input>
+                    <input type="text" className="form-control" onChange={(e) => setBirth(e.target.value)}></input>
                 </div>
-                <button type="submit" className="btn btn-primary">valider</button>
+                <button type="text" className="btn btn-primary">valider</button>
             </form>
         </div>
     )
