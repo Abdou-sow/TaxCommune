@@ -9,9 +9,9 @@ function InputGroup(props) {
     useEffect(async () => {
 
         const url = "http://localhost:9001/"+props.name
-        console.log("url :",url);
-        const response = await axios.post(url)
-        setInfo(response.data.activityList)
+        const response = await axios.get(url)
+        
+        setInfo(response.data.list)
 
 
     },[])
