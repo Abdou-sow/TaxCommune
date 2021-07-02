@@ -1,6 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 
 const Home = () => {
+
     return (
         <div  className="container-fluid text-center">
             <div className="row">
