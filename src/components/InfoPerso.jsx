@@ -9,15 +9,18 @@ import Pay from '../components/pay';
 const InfoPerso = () => {
 
     let history = useHistory()
+    const tel = ("telephone", localStorage.getItem("secretKey").split(" ")[1]);
 
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
-    const [birth, setBirth] = useState("");
+    const [id, setId] = useState("");
     const [addressPerso, setAddressPerso] = useState("");
     const [adressActivite, setAdressActivite] = useState("");
     const [telephone, setTelephone] = useState("");
     const [key, setKey] = useState("");
     const [modalIsOpen, setIsOpen] = useState(false);
+    const [prix, setPrix] = useState("")
+    const [acivite, setActivite] = useState("")
 
     const customStyles = {
         content: {
@@ -30,19 +33,36 @@ const InfoPerso = () => {
         },
     };
 
-    const tel = ("telephone", localStorage.getItem("secretKey").split(" ")[1]);
     useEffect(async () => {
         const response = await axios.get("http://localhost:9001/telephone/" + tel)
         console.log("response", response);
         setName(response.data.telephoneExist.surname)
+        setId(response.data.telephoneExist._id)
         setSurname(response.data.telephoneExist.firstname)
         setAddressPerso(response.data.telephoneExist.address_personal)
         setAdressActivite(response.data.telephoneExist.address_activity)
         setTelephone(response.data.telephoneExist.telephone)
         setKey(localStorage.getItem("secretKey").split(" ")[0])
+        setPrix(response.data.userActivityPrix)
+        setActivite(response.data.userActivity)
 
     })
+    const validePaye = {
+        userId: id,
+        amount: prix,
+        datepaid: new Date()
 
+    }
+    // const paye = () => {
+    //     console.log("je suis cliquer", validePaye);
+
+    // }
+    const paye = async()=>{
+        console.log("je suis cliquer", validePaye);
+        const response = await axios.post("http://localhost:9001/payment",validePaye)
+        console.log(response);
+        // alert("vous avez effectuer un payement")
+    }
     const logout = () => {
 
         history.push("/Connexion")
@@ -98,7 +118,15 @@ const InfoPerso = () => {
                         <h2 >Payement</h2>
                         <Pay />
                         <div className="text-center">
-                            <a><button>Payer</button></a>
+                            <div>
+                                <div>
+                                    <b>activite:</b>{acivite}
+                                </div>
+                                <div>
+                                    <b>prix :  </b>{prix}
+                                </div>
+                            </div>
+                            <a><button onClick={paye}>Payer</button></a>
                             {/* <a href="/Payement"><button>Payer</button></a> */}
                         </div>
 
