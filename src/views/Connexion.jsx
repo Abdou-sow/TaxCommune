@@ -13,15 +13,29 @@ function Login() {
     try {
       const response = await axios.post('http://localhost:9001/login', { telephone: telephoneNmb, password })
       console.log("response :", response);
-      if (response.status === 200) {
+      if (response.data.error) {
         console.log("if");
 
-        history.push("/EspacePerso")
+        alert("information incorrect")
 
+
+        
+      }else{
+
+        const key = response.data.validToken
+        const telephoneNmb = response.data.telephoneExist.telephone 
+
+        // console.log("key :", key);
+        // console.log("telephoneNmb :", telephoneNmb);
+        
+        localStorage.setItem("secretKey", `${key} ${telephoneNmb}`)
+
+        console.log("localStorage :", localStorage.getItem("secretKey"));
+
+        history.push("/EspacePerso")
       }
 
     } catch (error) {
-      alert("information incorrect")
       console.log("error :", error);
     }
   }
