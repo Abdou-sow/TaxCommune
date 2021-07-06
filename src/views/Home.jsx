@@ -4,6 +4,7 @@ import InputGroup from "../components/InputGroup"
 import { useState } from 'react';
 import { useEffect } from 'react';
 
+
 const Home = () => {
 
     const [commune, setCommune] = useState("")
@@ -20,19 +21,18 @@ const Home = () => {
             <div className="row">
                 <h1>Info commune</h1>
 
-                <div className="col-4 offset-1 ">
+                <div className="col-6 offset-3">
                     <h2>{commune}</h2>
                     <p>{info}</p>
 
-                </div>
 
-                <div className="col-3 offset-2 " onClick={afficheInfo} onChange={(e) => setCommune(e.target.value)}>
-                    <div>
+                    <div onClick={afficheInfo} onChange={(e) => setCommune(e.target.value)}>
 
                         <InputGroup
                             name="communes" />
                     </div>
                 </div>
+
 
                 {/* <p>La ville est située dans le Bassin parisien, dans la région Île-de-France. Elle est limitrophe de Paris, en banlieue est, dans le sud du département de la Seine-Saint-Denis. Elle fait partie de la petite couronne de Paris.</p> */}
                 <div>

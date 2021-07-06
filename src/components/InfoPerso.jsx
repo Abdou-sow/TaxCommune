@@ -1,3 +1,4 @@
+import { logDOM } from '@testing-library/react';
 import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
@@ -5,6 +6,7 @@ import Modal from 'react-modal';
 import { useHistory } from "react-router-dom";
 // import ModifInfo from './ModifInfo';TODO
 import Pay from '../components/pay';
+import History from './Hitory.jsx';
 
 const InfoPerso = () => {
 
@@ -46,23 +48,44 @@ const InfoPerso = () => {
         setPrix(response.data.userActivityPrix)
         setActivite(response.data.userActivity)
 
-    })
+    }, [])
+
+    const modification = async () => {
+
+        try {
+            const infoModifie = {
+                firstname: name,
+                surname: surname,
+                address_personal: addressPerso,
+                address_activity: adressActivite,
+                telephone: telephone,
+            }
+
+            const response = await axios.put("http://localhost:9001/modif/" + telephone, infoModifie)
+            console.log(response);
+            alert("tes donnees ont bien etait modifiez")
+            setIsOpen(false)
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
+
     const validePaye = {
-        userId: id,
-        amount: prix,
-        datepaid: new Date()
+        telephone: telephone,
+        amount: prix
 
     }
-    // const paye = () => {
-    //     console.log("je suis cliquer", validePaye);
 
-    // }
-    const paye = async()=>{
+    const paye = async () => {
         console.log("je suis cliquer", validePaye);
-        const response = await axios.post("http://localhost:9001/payment",validePaye)
+        const response = await axios.post("http://localhost:9001/payment", validePaye)
         console.log(response);
-        // alert("vous avez effectuer un payement")
+        alert("vous avez effectuer un payement")
     }
+
     const logout = () => {
 
         history.push("/Connexion")
@@ -90,30 +113,6 @@ const InfoPerso = () => {
                         <button className="btn btn-warning" onClick={() => setIsOpen(true)}>Modifier</button>
                         <button className="btn btn-warning" onClick={() => logout()}>LOGOUT</button>
                     </div>
-                    <Modal isOpen={modalIsOpen} style={customStyles}>
-                        <h2>Modifications</h2>
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">Name</span>
-                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={name} className="form-control" />
-                        </div>
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">Surname</span>
-                            <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} className="form-control" />
-                        </div>
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">addressPerso</span>
-                            <input type="text" value={addressPerso} onChange={(e) => setAddressPerso(e.target.value)} className="form-control" />
-                        </div>
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">adressActivite</span>
-                            <input type="text" value={adressActivite} onChange={(e) => setAdressActivite(e.target.value)} className="form-control" />
-                        </div>
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">Telephone</span>
-                            <input type="text" value={telephone} onChange={(e) => setTelephone(e.target.value)} className="form-control" />
-                        </div>
-                        <button onClick={() => setIsOpen(false)}>Sauver et sortir</button>
-                    </Modal>
                     <div className="border border-dark col-4 text-center">
                         <h2 >Payement</h2>
                         <Pay />
@@ -131,8 +130,41 @@ const InfoPerso = () => {
                         </div>
 
                     </div>
-
                 </div>
+
+                <div className="row ">
+                    <div className="border border-dark  text-center">
+                        <h2>history de payement</h2>
+                        <History 
+                        numero={tel}/>
+                    </div>
+                </div>
+
+
+                <Modal isOpen={modalIsOpen} style={customStyles}>
+                    <h2>Modifications</h2>
+                    <div className="input-group input-group-sm mb-3">
+                        <span className="input-group-text" id="inputGroup-sizing-sm">Name</span>
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
+                    </div>
+                    <div className="input-group input-group-sm mb-3">
+                        <span className="input-group-text" id="inputGroup-sizing-sm">Surname</span>
+                        <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} className="form-control" />
+                    </div>
+                    <div className="input-group input-group-sm mb-3">
+                        <span className="input-group-text" id="in-putGroup-sizing-sm">addressPerso</span>
+                        <input type="text" value={addressPerso} onChange={(e) => setAddressPerso(e.target.value)} className="form-control" />
+                    </div>
+                    <div className="input-group input-group-sm mb-3">
+                        <span className="input-group-text" id="inputGroup-sizing-sm">adressActivite</span>
+                        <input type="text" value={adressActivite} onChange={(e) => setAdressActivite(e.target.value)} className="form-control" />
+                    </div>
+                    <div className="input-group input-group-sm mb-3">
+                        <span className="input-group-text" id="inputGroup-sizing-sm">Telephone</span>
+                        <input type="text" value={telephone} onChange={(e) => setTelephone(e.target.value)} className="form-control" />
+                    </div>
+                    <button onClick={modification}>Sauver et sortir</button>
+                </Modal>
 
             </div>
 

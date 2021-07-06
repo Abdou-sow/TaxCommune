@@ -9,6 +9,7 @@ function InputGroup(props) {
     useEffect(async () => {
 
         const url = "http://localhost:9001/"+props.name
+        
         const response = await axios.get(url)
         
         setInfo(response.data.list)
