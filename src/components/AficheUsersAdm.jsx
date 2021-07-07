@@ -4,24 +4,24 @@ import { useEffect } from 'react';
 import { useState } from 'react/cjs/react.development';
 
 
-const AfficheUsers = () => {
-    const [users, setUsers] = useState([])
+const AfficheUsersAdm = () => {
+    // const [users, setUsers] = useState([])
 
 
-    useEffect(async () => {
+    // useEffect(async () => {
 
-        const response = await axios.get("http://localhost:9001/users/")
-        console.log("response dans history:", response);
-        // setUsers()
-    }, [])
+    //     const response = await axios.get("http://localhost:9001/users/")
+    //     console.log("response dans history:", response);
+    //     // setUsers()
+    // }, [])
 
     return (
         <div>
             <ul>
                 {/* {payements.map((elem) => <li>{elem.amount}</li>)} */}
             </ul>
-            <h5>AfficheUsers .....</h5>
+            <h5>AfficheUsersAdm .....</h5>
         </div>
     )
 }
-export default AfficheUsers;
+export default AfficheUsersAdm;
