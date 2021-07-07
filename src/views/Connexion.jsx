@@ -23,7 +23,7 @@ function Login() {
       }else{
 
         const key = response.data.validToken
-        const telephoneNmb = response.data.telephoneExist.telephone 
+        const telephoneNmb = response.data.validUser.telephone 
 
         // console.log("key :", key);
         // console.log("telephoneNmb :", telephoneNmb);

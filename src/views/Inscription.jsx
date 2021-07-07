@@ -4,6 +4,7 @@ import InputGroup from "../components/InputGroup";
 import { useHistory } from "react-router-dom";
 
 function Signup() {
+
     let history = useHistory()
 
     const [name, setName] = useState("")
@@ -20,18 +21,6 @@ function Signup() {
 
     const validUser = async (e) => {
         e.preventDefault();
-       
-       
-        // console.log("name :",name);
-        // console.log("surname :",surname);
-        // console.log("birth :",birth);
-        // console.log("addressPerso :",addressPerso);
-        // console.log("adressActivite :",adressActivite);
-        // console.log("activite :",activite);
-        // console.log("commune :",commune);
-        // console.log("telephone :",parseInt(telephone));
-        // console.log("passWord :",passWord);
-        // console.log("history :",history);
 
         try {
 
@@ -49,30 +38,23 @@ function Signup() {
 
             if (passWord === confirmPassword) {
 
-
                 const response = await axios.post('http://localhost:9001/signup', userInfo)
-
-
 
                 if (response.status === 200) {
 
-                    // console.log("setUserCreated :", response);
-
                     alert("you can connect now !")
-                    
                     history.push("/Connexion")
-
                 }
 
             } else {
+
                 alert("confirm password not correct")
             }
 
         } catch (error) {
+
             console.error(error.response);
         }
-
-
 
     }
     return (

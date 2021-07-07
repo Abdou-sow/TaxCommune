@@ -1,12 +1,10 @@
-import { logDOM } from '@testing-library/react';
 import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useHistory } from "react-router-dom";
-// import ModifInfo from './ModifInfo';TODO
 import Pay from '../components/pay';
-import History from './Hitory.jsx';
+import History from './History.jsx';
 
 const InfoPerso = () => {
 
@@ -15,14 +13,13 @@ const InfoPerso = () => {
 
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
-    const [id, setId] = useState("");
     const [addressPerso, setAddressPerso] = useState("");
     const [adressActivite, setAdressActivite] = useState("");
     const [telephone, setTelephone] = useState("");
-    const [key, setKey] = useState("");
+    const [key, setKey] = useState(""); //todo pour savoitr le temps ecouler 
     const [modalIsOpen, setIsOpen] = useState(false);
     const [prix, setPrix] = useState("")
-    const [acivite, setActivite] = useState("")
+    const [acivity, setActivity] = useState("")
 
     const customStyles = {
         content: {
@@ -38,15 +35,15 @@ const InfoPerso = () => {
     useEffect(async () => {
         const response = await axios.get("http://localhost:9001/telephone/" + tel)
         console.log("response", response);
-        setName(response.data.telephoneExist.surname)
-        setId(response.data.telephoneExist._id)
-        setSurname(response.data.telephoneExist.firstname)
-        setAddressPerso(response.data.telephoneExist.address_personal)
-        setAdressActivite(response.data.telephoneExist.address_activity)
-        setTelephone(response.data.telephoneExist.telephone)
+        setName(response.data.validUser.surname)
+        // setId(response.data.validUser._id)
+        setSurname(response.data.validUser.firstname)
+        setAddressPerso(response.data.validUser.address_personal)
+        setAdressActivite(response.data.validUser.address_activity)
+        setTelephone(response.data.validUser.telephone)
         setKey(localStorage.getItem("secretKey").split(" ")[0])
         setPrix(response.data.userActivityPrix)
-        setActivite(response.data.userActivity)
+        setActivity(response.data.userActivity)
 
     }, [])
 
@@ -80,7 +77,7 @@ const InfoPerso = () => {
     }
 
     const paye = async () => {
-        console.log("je suis cliquer", validePaye);
+
         const response = await axios.post("http://localhost:9001/payment", validePaye)
         console.log(response);
         alert("vous avez effectuer un payement")
@@ -119,7 +116,7 @@ const InfoPerso = () => {
                         <div className="text-center">
                             <div>
                                 <div>
-                                    <b>activite:</b>{acivite}
+                                    <b>activite:</b>{acivity}
                                 </div>
                                 <div>
                                     <b>prix :  </b>{prix}
