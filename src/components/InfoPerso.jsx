@@ -81,6 +81,7 @@ const InfoPerso = () => {
         const response = await axios.post("http://localhost:9001/payment", validePaye)
         console.log(response);
         alert("vous avez effectuer un payement")
+        window.location.reload();
     }
 
     const logout = () => {
