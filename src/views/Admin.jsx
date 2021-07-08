@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Modal from 'react-modal'
-import AfficheUsersAdm from "../components/AficheUsersAdm";
+import AfficheUsersAdm from "../components/AfficheUsersAdm";
 import AffichePayementAdm from "../components/AffichePayementAdm";
 
 function Admin() {
