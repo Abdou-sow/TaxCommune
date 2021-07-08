@@ -8,27 +8,29 @@ import Admin from '../views/Admin';
 import Home from '../views/Home';
 import Payement from "../views/Payement"
 
+import 'font-awesome/css/font-awesome.min.css';                 // this method can also be done to use awesome icons
 
 
 const NavBar = () => {
 
     const imgUrl = "https://jpi-urbaneurope.eu/wp-content/uploads/2020/10/page-dut.png"
+
     return (
         <BrowserRouter>
             <nav className="navbar navbar-expand-lg navbar-light bg-light p-0 " >
-                <div className="container-fluid"style={{backgroundColor:"#2c4053"}}>
+                <div className="container-fluid" style={{ backgroundColor: "#2c4053" }}>
                     <img src={imgUrl} alt="" width="250px" height="auto" className="d-inline-block align-text-top" />
 
                     <ul className="navbar-nav me-auto mb-lg-0">
                         <li className="nav-item" >
-                            <Link to="/"style={{color:"white", textDecoration:"none"}} >Accueil</Link>
+                            <Link to="/" style={{ color: "white", textDecoration: "none" }} >Accueil</Link>
                         </li>
                     </ul>
                     <span className="navbar-text">
-                        <ul id ="nava-ul"className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li><Link to="/Inscription" style={{color:"white", textDecoration:"none"}}>Inscription</Link></li>
-                            <li><Link to="/Connexion"style={{color:"white", textDecoration:"none"}}>Connexion</Link></li>
-                            <li><Link to="/EspacePerso" style={{color:"white", textDecoration:"none"}}>EspacePerso</Link></li>
+                        <ul id="nava-ul" className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li><Link to="/Inscription" style={{ color: "white", textDecoration: "none" }}>Inscription</Link></li>
+                            <li><Link to="/Connexion" style={{ color: "white", textDecoration: "none" }}>Connexion</Link></li>
+                            <li><Link to="/EspacePerso" style={{ color: "white", textDecoration: "none" }}>EspacePerso</Link></li>
                         </ul>
                     </span>
                 </div>
@@ -41,6 +43,9 @@ const NavBar = () => {
                 <Route exact path="/Payement" component={Payement} />
                 <Route exact path="/Admin" component={Admin} />
             </Switch>
+            <div class="card-footer bg-transparent border-success">
+                <div><i className="fab fa-facebook-square">facebook</i></div>
+            </div>
         </BrowserRouter>
     );
 }
