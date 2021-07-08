@@ -31,7 +31,7 @@ const Home = () => {
                     <div onClick={afficheInfo} onChange={(e) => setCommune(e.target.value)}>
 
                         <InputGroup
-                            name="communes" />
+                            name="Communes" />
 
                     </div>
                 </div>

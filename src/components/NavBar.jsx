@@ -12,14 +12,14 @@ import Payement from "../views/Payement"
 
 const NavBar = () => {
 
-    const imgUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkM_UHOsGT_1pQO7XbAbBw2I5zhVVbbgc8wQ&usqp=CAU"
+    const imgUrl = "https://jpi-urbaneurope.eu/wp-content/uploads/2020/10/page-dut.png"
     return (
         <BrowserRouter>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light " >
-                <div className="container-fluid"style={{backgroundColor:"blue"}}>
-                    <img src={imgUrl} alt="" width="75" height="50" className="d-inline-block align-text-top" />
+            <nav className="navbar navbar-expand-lg navbar-light bg-light p-0 " >
+                <div className="container-fluid"style={{backgroundColor:"#2c4053"}}>
+                    <img src={imgUrl} alt="" width="250px" height="auto" className="d-inline-block align-text-top" />
 
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav me-auto mb-lg-0">
                         <li className="nav-item" >
                             <Link to="/"style={{color:"white", textDecoration:"none"}} >Accueil</Link>
                         </li>

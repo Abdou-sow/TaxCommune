@@ -58,55 +58,54 @@ function Signup() {
 
     }
     return (
-        <div className="container ">
+        <div className="card-fluid col-6 offset-3 text-black">
             <h3 className="text-center">Inscrivez-vous</h3>
 
             <form onSubmit={validUser} >
-                <div className="input-group mb-3" onChange={(e) => setCommune(e.target.value)}>
+                <div className="input-group  my-1 " onChange={(e) => setCommune(e.target.value)}>
                     <InputGroup
                         name="communes" />
                 </div>
-                <div className="input-group mb-3" onChange={(e) => setActivite(e.target.value)}>
+                <div className="input-group" onChange={(e) => setActivite(e.target.value)}>
                     <InputGroup
                         name="activities" />
                 </div>
-                <div className="mb-3">
-                    <label className="form-label">name</label>
-                    <input type="text" className="form-control" autoComplete="name" onChange={(e) => setName(e.target.value)}></input>
+                <div className="">
+                    <label className="form-label"></label>
+                    <input type="text" className="form-control" placeholder="Name" autoComplete="name" onChange={(e) => setName(e.target.value)}></input>
                 </div>
-                <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">surname</label>
-                    <input type="text" className="form-control" onChange={(e) => setSurname(e.target.value)}></input>
+                <div className="">
+                    <label for="exampleInputEmail1" className="form-label"></label>
+                    <input type="text" className="form-control" placeholder="Surname" onChange={(e) => setSurname(e.target.value)}></input>
                 </div>
-                <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">addressPerso</label>
-                    <input type="text" className="form-control" onChange={(e) => setsetAddressperso(e.target.value)}></input>
+                <div className="">
+                    <label for="exampleInputEmail1" className="form-label"></label>
+                    <input type="text" className="form-control" placeholder="Personal Address" onChange={(e) => setsetAddressperso(e.target.value)}></input>
                 </div>
-                <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">adressActivite</label>
-                    <input type="text" className="form-control" onChange={(e) => setAddressactivite(e.target.value)}></input>
+                <div className="">
+                    <label for="exampleInputEmail1" className="form-label"></label>
+                    <input type="text" className="form-control" placeholder="Activity Address" onChange={(e) => setAddressactivite(e.target.value)}></input>
                 </div>
-                <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">telephone</label>
-                    <input type="text" className="form-control" onChange={(e) => setTelephone(e.target.value)}></input>
+                <div className="">
+                    <label for="exampleInputEmail1" className="form-label"></label>
+                    <input type="text" className="form-control" placeholder="Telephone Number(as User ID)" onChange={(e) => setTelephone(e.target.value)}></input>
                 </div>
-                <div className="mb-3">
-                    <label for="exampleFormControlInput1" className="form-label">Password </label>
-                    <input type="Password" className="form-control" onChange={(e) => setPassWord(e.target.value)}></input>
+                <div className="">
+                    <label for="exampleFormControlInput1" className="form-label"> </label>
+                    <input type="Password" className="form-control" placeholder="Password" onChange={(e) => setPassWord(e.target.value)}></input>
                 </div>
-                <div className="mb-3">
-                    <label for="exampleFormControlInput1" className="form-label">confirmPassword</label>
-                    <input type="Password" className="form-control" onChange={(e) => setConfirmPassword(e.target.value)}></input>
+                <div className="">
+                    <label for="exampleFormControlInput1" className="form-label"></label>
+                    <input type="Password" className="form-control" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)}></input>
                 </div>
-                <div className="mb-3">
-                    <label for="exampleFormControlInput1" className="form-label">birth</label>
-                    <input type="text" className="form-control" onChange={(e) => setBirth(e.target.value)}></input>
+                <div className="">
+                    <label for="exampleFormControlInput1" className="form-label"></label>
+                    <input type="text" className="form-control" placeholder="Date Of Birth" onChange={(e) => setBirth(e.target.value)}></input>
                 </div>
-                <button type="text" className="btn btn-primary">valider</button>
+                <button className="btn btn-primary my-1" type="text">Valider</button>
             </form>
         </div>
     )
-
 }
 
 export default Signup;
