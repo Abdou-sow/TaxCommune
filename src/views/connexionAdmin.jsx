@@ -14,7 +14,7 @@ function Loginadmin() {
       const response = await axios.post('http://localhost:9001/adminlogin', { telephone: telephoneNmb, password })
       console.log("response :", response);
       if (response.data.error) {
-        
+
         console.log("if");
 
         alert("Admin information incorrect")
@@ -30,8 +30,19 @@ function Loginadmin() {
         localStorage.setItem("secretKey", `${key} ${telephoneNmb}`)
 
         console.log("localStorage :", localStorage.getItem("secretKey"));
+        const userRole = response.data.validUser.role;
 
-        history.push("/Admin")// changer pour espace admine 
+        console.log("userRole", userRole)
+
+        if (userRole === 1) {
+
+          history.push("/Admin")// changer pour espace admine 
+
+        } else if (userRole === 2) {
+
+          history.push("/Agent")// changer pour espace admine 
+
+        }
       }
 
     } catch (error) {
@@ -48,12 +59,12 @@ function Loginadmin() {
         <div className=" text-center">
           <h1 className="text-center">Admin</h1>
           <div className="mb-3 col-5 form-floating " style={{ marginLeft: 323 }}>
-            <input type="text" className="form-control" onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" />
-            <label for="floatingInput">T.Numero</label>
+            <input type="text" className="form-control" onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" placeholder="User Name"/>
+            <label for="floatingInput">User Number</label>
           </div>
           <div className="mb-3 col-5 offset-4 form-floating" style={{ marginLeft: 323 }}>
-            <input type="password" className="form-control" onChange={(e => setPassword(e.target.value))} id="inputPassword" />
-            <label className="col-sm-2 col-form-label" for="floatingInput">Password</label>
+            <input type="password" className="form-control" onChange={(e => setPassword(e.target.value))} id="inputPassword" placeholder="Password"/>
+            <label for="floatingInput">Password</label>
           </div>
           <div className="col-4 offset-4">
             <button style={{ marginRight: 30 }} type="button" className="btn btn-success mt-2" onClick={validLogoin}>Valider</button>

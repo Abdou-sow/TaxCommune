@@ -18,7 +18,7 @@ const Home = () => {
     console.log("info:", info);
 
     return (
-        <div className="container-fluid text-center">
+        <div className="container-fluid col-10 offset-1 text-center">
             <div className="row">
 
                 <h1>Info commune</h1>

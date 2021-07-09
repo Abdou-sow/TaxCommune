@@ -43,19 +43,19 @@ function Login() {
   }
 
   return (
-    <div className="card-fluid col-6 offset-3 text-black" >
+    <div className="container" >
       <div className=" text-center ">
         <h1 className="text-center">User</h1>
-        <div className=" " >
-          <input type="text" className="form-control" onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" placeholder="User Name" />
-          <label for="floatingInput"></label>
+        <div className=" mb-3 col-5  form-floating" style={{ marginLeft: 323 }} >
+          <input type="text" className="form-control " onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" placeholder="User Name" />
+          <label for="floatingInput">User Name</label>
         </div>
-        <div className="">
-          <input type="password" className="form-control" onChange={(e => setPassword(e.target.value))} id="inputPassword" placeholder="Password" />
-          <label className="col-sm-2 col-form-label" for="floatingInput"></label>
+        <div className="mb-3 col-5 form-floating" style={{ marginLeft: 323 }}>
+          <input type="password" className="form-control " onChange={(e => setPassword(e.target.value))} id="inputPassword" placeholder="Password" />
+          <label for="floatingInput">Password</label>
         </div>
-        <div className="mx-2">
-          <button type="button" className="btn btn-success mx-2" onClick={validLogoin}>Valider</button>
+        <div className="col-4 offset-4">
+          <button style={{ marginRight: 30 }} type="button" className="btn btn-success mx-2" onClick={validLogoin}>Valider</button>
 
           <button type="button" className="btn btn-danger" >Annuler</button>
         </div>
