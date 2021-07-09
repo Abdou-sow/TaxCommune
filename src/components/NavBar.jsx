@@ -5,6 +5,7 @@ import Inscription from '../views/Inscription';
 import Connexion from '../views/Connexion';
 import EspacePerso from '../views/EspacePerso';
 import Admin from '../views/Admin';
+import ConnexionAdmin from '../views/connexionAdmin';
 import Home from '../views/Home';
 import Payement from "../views/Payement"
 
@@ -30,6 +31,7 @@ const NavBar = () => {
                         <ul id="nava-ul" className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li><Link to="/Inscription" style={{ color: "white", textDecoration: "none" }}>Inscription</Link></li>
                             <li><Link to="/Connexion" style={{ color: "white", textDecoration: "none" }}>Connexion</Link></li>
+                            <li><Link to="/connexionAdmin" style={{ color: "white", textDecoration: "none" }}>connexionAdmin</Link></li>
                             <li><Link to="/EspacePerso" style={{ color: "white", textDecoration: "none" }}>EspacePerso</Link></li>
                         </ul>
                     </span>
@@ -42,10 +44,11 @@ const NavBar = () => {
                 <Route exact path="/EspacePerso" component={EspacePerso} />
                 <Route exact path="/Payement" component={Payement} />
                 <Route exact path="/Admin" component={Admin} />
+                <Route exact path="/ConnexionAdmin" component={ConnexionAdmin} />
             </Switch>
-            <div class="card-footer bg-transparent border-success">
+            {/* <div class="card-footer bg-transparent border-success">
                 <div><i className="fab fa-facebook-square">facebook</i></div>
-            </div>
+            </div> */}
         </BrowserRouter>
     );
 }

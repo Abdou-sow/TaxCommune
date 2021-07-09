@@ -39,7 +39,8 @@ const Home = () => {
                     <div className="">
                         <div className="col-6 offset-3">
                             <a href="/Inscription"><button class="btn btn-primary me-2">Inscrivez-vous</button></a>
-                            <a href="/Connexion"><button class="btn btn-info">Connectez-vous</button></a>
+                            <a href="/connexionAdmin"><button class="btn btn-info  me-2">Admin</button></a>
+                            <a href="/Connexion"><button class="btn btn-info">User</button></a>
                         </div>
                     </div>
                 </div >

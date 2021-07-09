@@ -13,12 +13,11 @@ function Login() {
     try {
       const response = await axios.post('http://localhost:9001/login', { telephone: telephoneNmb, password })
       console.log("response :", response);
+      
       if (response.data.error) {
         console.log("if");
 
         alert("information incorrect")
-
-
         
       }else{
 
@@ -36,6 +35,9 @@ function Login() {
       }
 
     } catch (error) {
+
+      alert("Telephone ou password incorrect")
+
       console.log("error :", error);
     }
   }
@@ -43,7 +45,7 @@ function Login() {
   return (
     <div className="card-fluid col-6 offset-3 text-black" >
       <div className=" text-center ">
-        <h1 className="text-center">Login</h1>
+        <h1 className="text-center">User</h1>
         <div className=" " >
           <input type="text" className="form-control" onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" placeholder="User Name" />
           <label for="floatingInput"></label>
