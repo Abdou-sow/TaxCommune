@@ -28,6 +28,7 @@ const AffichePayementAdm = () => {
     useEffect(async () => {
 
         const response = await axios.get("http://localhost:9001/paymentlist/")
+        // console.log("response :",response.data.userPaymentList2.map((elem)=> elem.userId));
         
         setListNumber(response.data.userPaymentList2.map((elem)=> elem.userId.telephone));
 
