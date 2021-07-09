@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import { useHistory } from "react-router-dom";
 import Pay from '../components/pay';
 import History from './History.jsx';
+import Clock from './Clock';
 
 const InfoPerso = () => {
 
@@ -69,7 +70,6 @@ const InfoPerso = () => {
 
     }
 
-
     const validePaye = {
         telephone: telephone,
         amount: prix
@@ -90,57 +90,51 @@ const InfoPerso = () => {
 
         localStorage.clear()
 
-        alert("okkk")
+        alert(`${name} a été déconnecté`)
     }
+
+    // console.log(document.getElementById("MyClockDisplay"));
 
     return (
         <div>
             <h2 className="text-center">Espace Personnelle</h2>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="border border-light col-4 ">
-                        <ul>
-                            <li><b>Prénom:</b> {name}</li>
-                            <li><b>Nom:</b> {surname}</li>
-                            <li><b>Address Personnelle :</b> {addressPerso}</li>
-                            <li><b>Address Activite:</b> {adressActivite}</li>
-                            <li><b>Telephone:</b> {telephone}</li>
-                        </ul>
-
+                    <div class="list-group col-4">
+                        <button type="button" class="list-group-item list-group-item-action"><b>Prenom: </b>{name}</button>
+                        <button type="button" class="list-group-item list-group-item-action"><b>Nom: </b>{surname}</button>
+                        <button type="button" class="list-group-item list-group-item-action"><b>Adresse personnel: </b>{addressPerso}</button>
+                        <button type="button" class="list-group-item list-group-item-action"><b>Adresse activité: </b>{adressActivite}</button>
+                        <button type="button" class="list-group-item list-group-item-action"><b>Telephone: </b>{telephone}</button>
                         <div className="text-center">
-                            <button className="btn btn-primary" onClick={() => setIsOpen(true)}>Modifier</button>
+                            <button className="btn btn-warning" onClick={() => setIsOpen(true)}>Modifier</button>
                         </div>
-
                     </div>
                     <div className="col-4 text-center align-middle text-wrap">
-                        {/* <button className="btn btn-warning" onClick={() => setIsOpen(true)}>Modifier</button> */}
-                        <button className="btn btn-warning" onClick={() => logout()}>LOGOUT</button>
+                        <button className="btn btn-danger" onClick={() => logout()}>LOGOUT</button>
+                        <Clock />
                     </div>
-                    <div className="border border-light col-4">
+                    <div className="class=list-group col-4">
+                        <h2>Payement</h2>
                         {/* <Pay /> */}
-                        <div className=" my-5">
+                        <div className="">
                             <div>
-                                <ul>
-                                    <li>
-                                        <b>Activite:</b>{acivity.toLowerCase()}
-                                    </li>
-                                    <li>
-                                        <b>Prix :  </b>{prix}
-                                    </li>
-                                </ul>
+                            <button type="button" class="list-group-item list-group-item-action"><b>Activité: </b>{acivity}</button>
+                            <button type="button" class="list-group-item list-group-item-action"><b>Prix: </b>{prix}</button>
+                                    
+                        
                             </div>
-
                             <div className="text-center">
-
-                                <button className="btn btn-primary" onClick={paye}>Payer</button>
+                                <a><button onClick={paye}>Payer</button></a>
                             </div>
+                            {/* <a href="/Payement"><button>Payer</button></a> */}
                         </div>
 
                     </div>
                 </div>
 
                 <div className="row ">
-                    <div className="border border-dark  text-center">
+                    <div className="text-center">
                         <h2>history de payement</h2>
                         <History
                             numero={tel} />

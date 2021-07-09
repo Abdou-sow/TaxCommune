@@ -20,9 +20,8 @@ const History = (props) => {
 
     return (
         <div>
-            <ul>
-                {payements.map((elem) =>
-                    <li>Date de Payement: {moment(elem.paidon).format("DD/MM/YYYY")}, Payer :{elem.amount} </li>)}
+            <ul class="list-group">
+                {payements.map((elem) => <li class="list-group-item">prix payer :{elem.amount}<br />date de payement: {moment(elem.paidon).format("DD/MM/YYYY")}</li>)}
             </ul>
         </div>
     )
