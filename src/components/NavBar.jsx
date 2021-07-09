@@ -8,6 +8,7 @@ import Admin from '../views/Admin';
 import ConnexionAdmin from '../views/connexionAdmin';
 import Home from '../views/Home';
 import Payement from "../views/Payement"
+import Agent from "../views/Agent"
 
 import 'font-awesome/css/font-awesome.min.css';                 // this method can also be done to use awesome icons
 
@@ -28,11 +29,10 @@ const NavBar = () => {
                         </li>
                     </ul>
                     <span className="navbar-text">
-                        <ul id="nava-ul" className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li><Link to="/Inscription" style={{ color: "white", textDecoration: "none" }}>Inscription</Link></li>
-                            <li><Link to="/Connexion" style={{ color: "white", textDecoration: "none" }}>Connexion</Link></li>
-                            <li><Link to="/connexionAdmin" style={{ color: "white", textDecoration: "none" }}>Connexion Admin</Link></li>
-                            <li><Link to="/EspacePerso" style={{ color: "white", textDecoration: "none" }}>EspacePerso</Link></li>
+                        <ul id ="nava-ul"className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li><Link to="/Inscription" style={{color:"white", textDecoration:"none"}}>Inscription</Link></li>
+                            <li><Link to="/Connexion"style={{color:"white", textDecoration:"none"}}>Connexion</Link></li>
+                            {/* <li><Link to="/EspacePerso" style={{color:"white", textDecoration:"none"}}>EspacePerso</Link></li> */}
                         </ul>
                     </span>
                 </div>
@@ -45,6 +45,7 @@ const NavBar = () => {
                 <Route exact path="/Payement" component={Payement} />
                 <Route exact path="/Admin" component={Admin} />
                 <Route exact path="/ConnexionAdmin" component={ConnexionAdmin} />
+                <Route exact path="/Agent" component={Agent} />
             </Switch>
             {/* <div class="card-footer bg-transparent border-success">
                 <div><i className="fab fa-facebook-square">facebook</i></div>

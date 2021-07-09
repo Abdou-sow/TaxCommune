@@ -164,8 +164,6 @@ const AffichePayementAdm = () => {
                             <TableRow>
                                 <StyledTableCell>prix</StyledTableCell>
                                 <StyledTableCell align="right">date</StyledTableCell>
-                                {/* <StyledTableCell align="right">activite</StyledTableCell> */}
-                                {/* <StyledTableCell align="right">prix payer</StyledTableCell> */}
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -173,16 +171,12 @@ const AffichePayementAdm = () => {
                                 <StyledTableRow key={rowsPayement.name}>
                                     <StyledTableCell component="th" scope="row"> {rowsPayement.prix}</StyledTableCell>
                                     <StyledTableCell align="right">{rowsPayement.date}</StyledTableCell>
-                                    {/* <StyledTableCell align="right">{row.prix}</StyledTableCell> */}
                                 </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>
                 </TableContainer>
-                <Button variant="contained" color="secondary" onClick={() => setChangeReturn(false)}>
-                    retour
-                </Button>
-                {/* <button onClick={() => setChangeReturn(false)}>clique moi</button> */}
+                <Button variant="contained" color="secondary" onClick={() => setChangeReturn(false)}>retour</Button>
             </div>
         )
     }
