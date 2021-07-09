@@ -18,12 +18,12 @@ const Home = () => {
     console.log("info:", info);
 
     return (
-        <div className="container-fluid col-10 offset-1 text-center">
+        <div className="container-fluid col-12 text-center my-3">
             <div className="row">
 
-                <h1>Info commune</h1>
+                <h1>Information Commune</h1>
 
-                <div className="col-6 offset-3">
+                <div className="col-6 offset-3 my-3">
 
                     <h2>{commune}</h2>
                     <p>{info}</p>

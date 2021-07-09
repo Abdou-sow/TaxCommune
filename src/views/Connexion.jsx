@@ -13,20 +13,20 @@ function Login() {
     try {
       const response = await axios.post('http://localhost:9001/login', { telephone: telephoneNmb, password })
       console.log("response :", response);
-      
+
       if (response.data.error) {
         console.log("if");
 
         alert("information incorrect")
-        
-      }else{
+
+      } else {
 
         const key = response.data.validToken
-        const telephoneNmb = response.data.validUser.telephone 
+        const telephoneNmb = response.data.validUser.telephone
 
         // console.log("key :", key);
         // console.log("telephoneNmb :", telephoneNmb);
-        
+
         localStorage.setItem("secretKey", `${key} ${telephoneNmb}`)
 
         console.log("localStorage :", localStorage.getItem("secretKey"));
@@ -40,6 +40,14 @@ function Login() {
 
       console.log("error :", error);
     }
+  }
+
+   // Input reset
+
+  const annuler = () => {
+
+    setTelephoneNmb("")
+
   }
 
   return (
@@ -57,7 +65,7 @@ function Login() {
         <div className="col-4 offset-4">
           <button style={{ marginRight: 30 }} type="button" className="btn btn-success mx-2" onClick={validLogoin}>Valider</button>
 
-          <button type="button" className="btn btn-danger" >Annuler</button>
+          <button type="button" className="btn btn-danger" onClick={annuler} >Annuler</button>
         </div>
       </div>
 

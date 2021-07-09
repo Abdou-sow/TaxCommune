@@ -95,36 +95,45 @@ const InfoPerso = () => {
 
     return (
         <div>
-            <h1 className="text-center">EspacePerso</h1>
-            <div className="container">
+            <h2 className="text-center">Espace Personnelle</h2>
+            <div className="container-fluid">
                 <div className="row">
-                    <div className="border border-dark col-4">
+                    <div className="border border-light col-4 ">
                         <ul>
-                            <li><b>Name:</b> {name}</li>
-                            <li><b>Surname:</b> {surname}</li>
-                            <li><b>addressPerso:</b> {addressPerso}</li>
-                            <li><b>adressActivite:</b> {adressActivite}</li>
-                            <li><b>telephone:</b> {telephone}</li>
+                            <li><b>Prénom:</b> {name}</li>
+                            <li><b>Nom:</b> {surname}</li>
+                            <li><b>Address Personnelle :</b> {addressPerso}</li>
+                            <li><b>Address Activite:</b> {adressActivite}</li>
+                            <li><b>Telephone:</b> {telephone}</li>
                         </ul>
+
+                        <div className="text-center">
+                            <button className="btn btn-primary" onClick={() => setIsOpen(true)}>Modifier</button>
+                        </div>
+
                     </div>
                     <div className="col-4 text-center align-middle text-wrap">
-                        <button className="btn btn-warning" onClick={() => setIsOpen(true)}>Modifier</button>
+                        {/* <button className="btn btn-warning" onClick={() => setIsOpen(true)}>Modifier</button> */}
                         <button className="btn btn-warning" onClick={() => logout()}>LOGOUT</button>
                     </div>
-                    <div className="border border-dark col-4 text-center">
-                        <h2 >Payement</h2>
-                        <Pay />
-                        <div className="text-center">
+                    <div className="border border-light col-4">
+                        {/* <Pay /> */}
+                        <div className=" my-5">
                             <div>
-                                <div>
-                                    <b>activite:</b>{acivity}
-                                </div>
-                                <div>
-                                    <b>prix :  </b>{prix}
-                                </div>
+                                <ul>
+                                    <li>
+                                        <b>Activite:</b>{acivity.toLowerCase()}
+                                    </li>
+                                    <li>
+                                        <b>Prix :  </b>{prix}
+                                    </li>
+                                </ul>
                             </div>
-                            <a><button onClick={paye}>Payer</button></a>
-                            {/* <a href="/Payement"><button>Payer</button></a> */}
+
+                            <div className="text-center">
+
+                                <button className="btn btn-primary" onClick={paye}>Payer</button>
+                            </div>
                         </div>
 
                     </div>
@@ -133,8 +142,8 @@ const InfoPerso = () => {
                 <div className="row ">
                     <div className="border border-dark  text-center">
                         <h2>history de payement</h2>
-                        <History 
-                        numero={tel}/>
+                        <History
+                            numero={tel} />
                     </div>
                 </div>
 
