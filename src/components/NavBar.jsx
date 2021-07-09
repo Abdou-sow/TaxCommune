@@ -7,6 +7,7 @@ import EspacePerso from '../views/EspacePerso';
 import Admin from '../views/Admin';
 import Home from '../views/Home';
 import Payement from "../views/Payement"
+import Agent from "../views/Agent"
 
 
 
@@ -28,7 +29,7 @@ const NavBar = () => {
                         <ul id ="nava-ul"className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li><Link to="/Inscription" style={{color:"white", textDecoration:"none"}}>Inscription</Link></li>
                             <li><Link to="/Connexion"style={{color:"white", textDecoration:"none"}}>Connexion</Link></li>
-                            <li><Link to="/EspacePerso" style={{color:"white", textDecoration:"none"}}>EspacePerso</Link></li>
+                            {/* <li><Link to="/EspacePerso" style={{color:"white", textDecoration:"none"}}>EspacePerso</Link></li> */}
                         </ul>
                     </span>
                 </div>
@@ -40,6 +41,7 @@ const NavBar = () => {
                 <Route exact path="/EspacePerso" component={EspacePerso} />
                 <Route exact path="/Payement" component={Payement} />
                 <Route exact path="/Admin" component={Admin} />
+                <Route exact path="/Agent" component={Agent} />
             </Switch>
         </BrowserRouter>
     );
