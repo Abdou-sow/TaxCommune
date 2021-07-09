@@ -10,9 +10,6 @@ import Home from '../views/Home';
 import Payement from "../views/Payement"
 import Agent from "../views/Agent"
 
-import 'font-awesome/css/font-awesome.min.css';                 // this method can also be done to use awesome icons
-
-
 const NavBar = () => {
 
     const imgUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewWf5juZyCBOD2kUwRR3YLxut11SAn6QpAw&usqp=CAU"
