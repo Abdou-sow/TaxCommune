@@ -4,8 +4,11 @@ import AfficheUsersAdm from "../components/AfficheUsersAdm";
 import AffichePayementAdm from "../components/AffichePayementAdm";
 import Button from '@material-ui/core/Button';
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function Admin() {
+
+    let history = useHistory()
 
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
@@ -27,6 +30,11 @@ function Admin() {
     };
     const ajouteAdmin = () => {
         setIsOpen(true)
+    }
+    const logout = () => {
+        localStorage.clear()
+        alert(`${name} a ete deconnecte`)
+        history.push("/ConnexionAdmin")
     }
 
     const valideAjout = () => {
@@ -79,6 +87,7 @@ function Admin() {
 
     };
 
+    // console.log("localstorage :", localStorage.getItem("secretKey").split(" ")[0]);
     return (
         <div className="container text-center">
             <div className="row" style={{ height: 100 }}>
@@ -86,6 +95,10 @@ function Admin() {
                     <Button variant="contained" color="primary" disableElevation onClick={ajouteAdmin}>
                         ajoute admin
                     </Button>
+                    <Button variant="contained" color="primary" disableElevation onClick={logout}>
+                        Logout
+                    </Button>
+
                 </div>
 
             </div>
