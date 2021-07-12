@@ -41,20 +41,20 @@ function Admin() {
             const infoAdmin = {
                 firstname: name,
                 surname: surname,
-                role:role,
+                role: role,
                 password: password,
                 telephone: parseInt(telephone)
             }
             if (password === confirmPassword) {
 
                 const response = axios.post("http://localhost:9001/adminsignup", infoAdmin)
-                
 
-                    console.log("response valide ajout admin :", response);
-                    alert("you can connect now !")
-                    // history.push("/Connexion")
-                    setIsOpen(false)
-                
+
+                console.log("response valide ajout admin :", response);
+                alert("you can connect now !")
+                // history.push("/Connexion")
+                setIsOpen(false)
+
 
             } else {
 
@@ -66,6 +66,18 @@ function Admin() {
 
         }
     }
+
+    // Input reset
+
+    const annuler = () => {
+
+        setName("");
+        setSurname("");
+        setTelephone("");
+        setPassword("");
+        setConfirmPassword("");
+
+    };
 
     return (
         <div className="container text-center">
@@ -89,15 +101,19 @@ function Admin() {
                 <div>
                     <div className="mb-3">
                         <label className="form-label">name</label>
-                        <input type="text" className="form-control" autoComplete="name" onChange={(e) => setName(e.target.value)}></input>
+                        <input type="text" className="form-control"
+                            autoComplete="name" value={name}
+                            onChange={(e) => setName(e.target.value)}></input>
                     </div>
                     <div className="mb-3">
                         <label for="exampleInputEmail1" className="form-label">surname</label>
-                        <input type="text" className="form-control" onChange={(e) => setSurname(e.target.value)}></input>
+                        <input type="text" className="form-control" value={surname}
+                            onChange={(e) => setSurname(e.target.value)}></input>
                     </div>
                     <div className="mb-3">
                         <label for="exampleInputEmail1" className="form-label">telephone</label>
-                        <input type="text" className="form-control" onChange={(e) => setTelephone(e.target.value)}></input>
+                        <input type="text" className="form-control" value={telephone}
+                            onChange={(e) => setTelephone(e.target.value)}></input>
                     </div>
                     <div class="input-group mb-3" onChange={(e) => setRole(e.target.value)} >
                         <label class="input-group-text" for="inputGroupSelect01">role</label>
@@ -108,15 +124,20 @@ function Admin() {
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlInput1" className="form-label">Password </label>
-                        <input type="Password" className="form-control" onChange={(e) => setPassword(e.target.value)}></input>
+                        <input type="Password" className="form-control" value={password}
+                            onChange={(e) => setPassword(e.target.value)}></input>
                     </div>
                     <div className="mb-3">
                         <label for="exampleFormControlInput1" className="form-label">confirmPassword</label>
-                        <input type="Password" className="form-control" onChange={(e) => setConfirmPassword(e.target.value)}></input>
+                        <input type="Password" className="form-control" value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}></input>
                     </div>
                 </div>
                 <button type="button" class="btn btn-danger" onClick={() => setIsOpen(false)}>annuler</button>
-                <button type="button" class="btn btn-success" onClick={valideAjout}>valider</button>
+                <button type="button" class="btn btn-success"
+                    onClick={valideAjout}>valider</button>
+                <button type="button" class="btn btn-success"
+                    onClick={annuler}>Annuler</button>
 
 
             </Modal>

@@ -21,7 +21,7 @@ const Home = () => {
         <div className="container-fluid col-12 text-center my-3">
             <div className="row">
 
-                <h1>Information Commune</h1>
+                <h1>Information Sur La Commune</h1>
 
                 <div className="col-6 offset-3 my-3">
 
