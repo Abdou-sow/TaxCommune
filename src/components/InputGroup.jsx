@@ -20,7 +20,7 @@ function InputGroup(props) {
     return (
         <div className="input-group mb-3">
             <select class="form-select" id="inputGroupSelect02">
-                <option selected>{props.name}...</option>
+                <option selected disabled>{props.name}...</option>
                 {info.map((elem, index ) => {
                     return (<option key={index}>{elem.name}</option>)
                 })}
