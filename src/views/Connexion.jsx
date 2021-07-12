@@ -17,7 +17,7 @@ function Login() {
       if (response.data.error) {
         console.log("if");
 
-        alert("information incorrect")
+        alert("Information Incorrect")
 
       } else {
 
@@ -42,28 +42,34 @@ function Login() {
     }
   }
 
-   // Input reset
+  // Input reset
 
   const annuler = () => {
+    console.log("iam in annuler")
+    setTelephoneNmb("");
+    setPassword("");
 
-    setTelephoneNmb("")
-
-  }
+  };
 
   return (
     <div className="container" >
       <div className=" text-center ">
         <h1 className="text-center">User</h1>
         <div className=" mb-3 col-5  form-floating" style={{ marginLeft: 323 }} >
-          <input type="text" className="form-control " onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" placeholder="User Name" />
+          <input type="text" className="form-control "
+            onChange={(e => setTelephoneNmb(e.target.value))}
+            id="staticEmail" placeholder="User Name" value={telephoneNmb} />
           <label for="floatingInput">User Name</label>
         </div>
         <div className="mb-3 col-5 form-floating" style={{ marginLeft: 323 }}>
-          <input type="password" className="form-control " onChange={(e => setPassword(e.target.value))} id="inputPassword" placeholder="Password" />
+          <input type="password" className="form-control "
+            onChange={(e => setPassword(e.target.value))}
+            id="inputPassword" placeholder="Password" value={password} />
           <label for="floatingInput">Password</label>
         </div>
         <div className="col-4 offset-4">
-          <button style={{ marginRight: 30 }} type="button" className="btn btn-success mx-2" onClick={validLogoin}>Valider</button>
+          <button style={{ marginRight: 30 }} type="button" className="btn btn-success mx-2"
+            onClick={validLogoin}>Valider</button>
 
           <button type="button" className="btn btn-danger" onClick={annuler} >Annuler</button>
         </div>

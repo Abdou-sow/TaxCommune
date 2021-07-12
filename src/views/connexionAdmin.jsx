@@ -17,7 +17,7 @@ function Loginadmin() {
 
         console.log("if");
 
-        alert("Admin information incorrect")
+        alert("Admin Information Incorrect")
 
       } else {
 
@@ -36,11 +36,11 @@ function Loginadmin() {
 
         if (userRole === 1) {
 
-          history.push("/Admin")// changer pour espace admine 
+          history.push("/Admin")  // changer pour espace admine 
 
         } else if (userRole === 2) {
 
-          history.push("/Agent")// changer pour espace admine 
+          history.push("/Agent")  // changer pour espace admine 
 
         }
       }
@@ -53,23 +53,37 @@ function Loginadmin() {
     }
   }
 
+  // Input reset
+
+  const annuler = () => {
+
+    setTelephoneNmb("");
+    setPassword("");
+
+  };
+
   return (
     <>
       <div className="container">
         <div className=" text-center">
           <h1 className="text-center">Admin</h1>
           <div className="mb-3 col-5 form-floating " style={{ marginLeft: 323 }}>
-            <input type="text" className="form-control" onChange={(e => setTelephoneNmb(e.target.value))} id="staticEmail" placeholder="User Name"/>
+            <input type="text" className="form-control"
+              onChange={(e => setTelephoneNmb(e.target.value))}
+              id="staticEmail" placeholder="User Name" value={telephoneNmb} />
             <label for="floatingInput">User Number</label>
           </div>
           <div className="mb-3 col-5 offset-4 form-floating" style={{ marginLeft: 323 }}>
-            <input type="password" className="form-control" onChange={(e => setPassword(e.target.value))} id="inputPassword" placeholder="Password"/>
+            <input type="password" className="form-control"
+              onChange={(e => setPassword(e.target.value))}
+              id="inputPassword" placeholder="Password" value={password} />
             <label for="floatingInput">Password</label>
           </div>
           <div className="col-4 offset-4">
-            <button style={{ marginRight: 30 }} type="button" className="btn btn-success mt-2" onClick={validLogoin}>Valider</button>
+            <button style={{ marginRight: 30 }} type="button" className="btn btn-success mt-2"
+              onClick={validLogoin}>Valider</button>
 
-            <button type="button" className="btn btn-danger mt-2" >Annuler</button>
+            <button type="button" className="btn btn-danger mt-2" onClick={annuler} >Annuler</button>
           </div>
         </div>
 
