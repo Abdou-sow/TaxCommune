@@ -9,7 +9,6 @@ import ConnexionAdmin from '../views/connexionAdmin';
 import Home from '../views/Home';
 import Payement from "../views/Payement"
 
-import 'font-awesome/css/font-awesome.min.css';                 // this method can also be done to use awesome icons
 
 
 const NavBar = () => {

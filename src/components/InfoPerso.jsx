@@ -98,29 +98,29 @@ const InfoPerso = () => {
     return (
         <div>
             <h2 className="text-center">Espace Personnelle</h2>
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row">
                     <div class="list-group col-4">
-                        <button type="button" class="list-group-item list-group-item-action"><b>Prenom: </b>{name}</button>
-                        <button type="button" class="list-group-item list-group-item-action"><b>Nom: </b>{surname}</button>
-                        <button type="button" class="list-group-item list-group-item-action"><b>Adresse personnel: </b>{addressPerso}</button>
-                        <button type="button" class="list-group-item list-group-item-action"><b>Adresse activité: </b>{adressActivite}</button>
-                        <button type="button" class="list-group-item list-group-item-action"><b>Telephone: </b>{telephone}</button>
+                        <button type="button" style={{border:"none"}} class="list-group-item list-group-item-action"><b>Nom: </b>{surname}</button>
+                        <button type="button" style={{border:"none"}} class="list-group-item list-group-item-action"><b>Adresse personnel: </b>{addressPerso}</button>
+                        <button type="button" style={{border:"none"}} class="list-group-item list-group-item-action"><b>Prenom: </b>{name}</button>
+                        <button type="button" style={{border:"none"}} class="list-group-item list-group-item-action"><b>Adresse activité: </b>{adressActivite}</button>
+                        <button type="button" style={{border:"none"}} class="list-group-item list-group-item-action"><b>Telephone: </b>{telephone}</button>
                         <div className="text-center">
                             <button className="btn btn-warning" onClick={() => setIsOpen(true)}>Modifier</button>
                         </div>
                     </div>
                     <div className="col-4 text-center align-middle text-wrap">
                         <button className="btn btn-danger" onClick={() => logout()}>LOGOUT</button>
-                        <Clock />
+                        {/* <Clock /> */}
                     </div>
-                    <div className="class=list-group col-4">
+                    <div className="class=list-group col-4 text-center">
                         <h2>Payement</h2>
                         {/* <Pay /> */}
                         <div className="">
                             <div>
-                            <button type="button" class="list-group-item list-group-item-action"><b>Activité: </b>{acivity}</button>
-                            <button type="button" class="list-group-item list-group-item-action"><b>Prix: </b>{prix}</button>
+                            <button type="button" style={{border:"none"}} class="list-group-item list-group-item-action"><b>Activité: </b>{acivity}</button>
+                            <button type="button" style={{border:"none"}} class="list-group-item list-group-item-action"><b>Prix: </b>{prix}</button>
                                     
                         
                             </div>
