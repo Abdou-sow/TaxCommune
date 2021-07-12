@@ -129,6 +129,7 @@ function Admin() {
                     <div class="input-group mb-3" onChange={(e) => setRole(e.target.value)} >
                         <label class="input-group-text" for="inputGroupSelect01">role</label>
                         <select class="form-select" id="inputGroupSelect01">
+                            <option selected disabled>role</option>
                             <option value="admin">Admin</option>
                             <option value="agent">Agent</option>
                         </select>
