@@ -37,7 +37,7 @@ function Admin() {
         history.push("/ConnexionAdmin")
     }
 
-    const valideAjout = () => {
+    const valideAjout = async () => {
         // console.log(" name:",name);
         // console.log(" surname:",surname);
         // console.log(" telephone:",parseInt(telephone));
@@ -55,7 +55,7 @@ function Admin() {
             }
             if (password === confirmPassword) {
 
-                const response = axios.post("http://localhost:9001/adminsignup", infoAdmin)
+                const response = await axios.post("http://localhost:9001/adminsignup", infoAdmin)
 
                 console.log("response valide ajout admin :", response);
                 alert("you can connect now !")
