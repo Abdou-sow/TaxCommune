@@ -49,12 +49,10 @@ function Admin() {
 
                 const response = axios.post("http://localhost:9001/adminsignup", infoAdmin)
 
-
                 console.log("response valide ajout admin :", response);
                 alert("you can connect now !")
                 // history.push("/Connexion")
                 setIsOpen(false)
-
 
             } else {
 
@@ -84,7 +82,7 @@ function Admin() {
             <div className="row" style={{ height: 100 }}>
                 <div className="col-6 offset-3">
                     <Button variant="contained" color="primary" disableElevation onClick={ajouteAdmin}>
-                        ajoute admin
+                        Ajoute Admin
                     </Button>
                 </div>
 
@@ -133,17 +131,12 @@ function Admin() {
                             onChange={(e) => setConfirmPassword(e.target.value)}></input>
                     </div>
                 </div>
-                <button type="button" class="btn btn-danger" onClick={() => setIsOpen(false)}>annuler</button>
-                <button type="button" class="btn btn-success"
-                    onClick={valideAjout}>valider</button>
-                <button type="button" class="btn btn-success"
-                    onClick={annuler}>Annuler</button>
-
-
+                <button type="button" class="btn btn-danger mx-1" onClick={() => setIsOpen(false)}>Annuler</button>
+                <button type="button" class="btn btn-success  mx-1"
+                    onClick={valideAjout}>Valider</button>
+                <button type="button" class="btn btn-warning mx-1"
+                    onClick={annuler}>Effacer</button>
             </Modal>
-
-
-
         </div>
     );
 }
