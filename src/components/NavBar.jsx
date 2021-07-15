@@ -16,8 +16,8 @@ const NavBar = () => {
 
     return (
         <BrowserRouter>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light p-0 " >
-                <div className="container-fluid" style={{ backgroundColor: "cadetblue" }}>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light p-0 mb-3 " >
+                <div className="container-fluid" style={{ backgroundColor: "#86cecb" }}>
                     <img src={imgUrl} alt="" width="150px" height="auto" className="d-inline-block align-text-top" />
 
                     <ul className="navbar-nav me-auto mb-lg-0">

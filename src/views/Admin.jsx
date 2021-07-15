@@ -89,23 +89,33 @@ function Admin() {
     return (
         <div className="container text-center">
             <div className="row" style={{ height: 100 }}>
-                <div className="col-6 offset-3">
-                    <Button variant="contained" color="primary" disableElevation onClick={ajouteAdmin}>
-                        Ajoute Admin
-                    </Button>
-                    <Button variant="contained" color="primary" disableElevation onClick={logout}>
-                        Logout
-                    </Button>
+                {/* <div className="col-6 "> */}
+                {/* <div className="row "> */}
+                <div className="col-3 offset-7">
 
+                    <button variant="contained" className="btn btn-primary" style={{ color: "white", marginLeft: -86}} disableElevation onClick={ajouteAdmin}>
+                        Ajoute Admin
+                    </button>
                 </div>
+
+                <div className="col-2 ">
+                    <button color="secondary" className="btn btn-danger" disableElevation onClick={logout}>Logout</button>
+                </div>
+                {/* </div> */}
+
+                {/* <Button variant="contained" color="primary" >
+                        Logout
+                    </Button> */}
+
+                {/* </div> */}
 
             </div>
             <div className="row">
-                <div className="col-5 ">
-                    <AfficheUsersAdm />
+                <div className="col-5 " style={{ marginTop: -37 }} >
+                    <AffichePayementAdm />
                 </div>
                 <div className="col-5 offset-2 ">
-                    <AffichePayementAdm />
+                    <AfficheUsersAdm />
                 </div>
             </div>
             <Modal isOpen={modalIsOpen} style={customStyles} >

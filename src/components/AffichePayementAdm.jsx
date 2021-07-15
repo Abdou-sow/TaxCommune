@@ -29,8 +29,8 @@ const AffichePayementAdm = () => {
 
         const response = await axios.get("http://localhost:9001/paymentlist/")
         // console.log("response :",response.data.userPaymentList2.map((elem)=> elem.userId));
-        
-        setListNumber(response.data.userPaymentList2.map((elem)=> elem.userId.telephone));
+
+        setListNumber(response.data.userPaymentList2.map((elem) => elem.userId.telephone));
 
         setPayements(response.data.userPaymentList2)
         console.log("response :", response);
@@ -41,13 +41,13 @@ const AffichePayementAdm = () => {
     }, [])
 
     const checheUser = async () => {
-        
+
         // console.log("typeof listNumber[0]", listNumber[0]);
         // console.log("typeof chercheUser", typeof(chercheUser));
         // console.log("typeof element de lisNumber", typeof(chercheUser));
-        console.log("si le numero existe :",listNumber.includes(parseInt(chercheUser)));
+        console.log("si le numero existe :", listNumber.includes(parseInt(chercheUser)));
 
-        if(listNumber.includes(parseInt(chercheUser))){
+        if (listNumber.includes(parseInt(chercheUser))) {
 
 
             const response = await axios.get("http://localhost:9001/payment/" + chercheUser)
@@ -55,7 +55,7 @@ const AffichePayementAdm = () => {
             setPayementUsers(response.data.userPaymentList)
             // console.log("response 12165:", response);
             setChangeReturn(true)
-        }else{
+        } else {
             alert("le numero n'existe pas!!")
         }
     }
@@ -107,14 +107,13 @@ const AffichePayementAdm = () => {
 
         return (
             <div>
-                <div className="row b-2">
-                    <div className="col-6 offset-3">
-                    </div>
+                <div className="row"></div>
+                <div className="row mb-2">
                     <div className="col-6">
                         <input placeholder="numero de telephone" onChange={(e) => { setChercheUser(e.target.value) }} type="text" />
                     </div>
                     <div className="col-3 offset-2">
-                        <Button variant="contained" size="small" color="primary" className={classes.margin} onClick={checheUser}> chercher... </Button>
+                        <Button style={{ backgroundColor: "cadetblue", color: "#86cecb" }} variant="contained" size="small"  className={classes.margin} onClick={checheUser}> chercher... </Button>
                         {/* <button onClick={checheUser}>chercher...</button> */}
                     </div>
                 </div>
@@ -146,16 +145,17 @@ const AffichePayementAdm = () => {
     } else {
         return (
             <div>
-                <div className="row border border-dark b-2">
-                    <div className="col-6 offset-3">
+                <div className="row mb-2">
+                    {/* <div className="col-6 offset-3">
                         <h5>filtrer par telephone</h5>
-                    </div>
+                    </div> */}
                     <div className="col-6">
                         <input onChange={(e) => { setChercheUser(e.target.value) }} type="text" />
                     </div>
                     <div className="col-3 offset-3">
+                        <Button style={{ backgroundColor: "cadetblue", color: "#86cecb" }} variant="contained" size="small" className={classes.margin} onClick={checheUser}> chercher... </Button>
 
-                        <button onClick={checheUser}>chercher...</button>
+                        {/* <button style={{backgroundColor: "cadetblue", color: "white"}} onClick={checheUser}>chercher...</button> */}
                     </div>
                 </div>
                 <TableContainer component={Paper}>
